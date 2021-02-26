@@ -69,6 +69,19 @@ namespace Project_06
         private void buttonTotal_Click(object sender, EventArgs e)
         {
             textBoxTotal.Text = "$" + totalPrice;
+
+            listBoxTotTrans.Items.Add(totalPrice);
+        }
+
+        private void buttonTotalTrans_Click(object sender, EventArgs e)
+        {
+            Decimal dayTotal = 0.0M;
+            foreach (Decimal d in listBoxTotTrans.Items)
+            {
+                dayTotal += d;
+            }
+
+            textBoxTransSummary.Text = "$" + dayTotal;
         }
     }
 }

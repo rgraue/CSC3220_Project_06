@@ -48,10 +48,16 @@ namespace Project_06
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.buttonTotal = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBoxTotTrans = new System.Windows.Forms.ListBox();
+            this.buttonTotalTrans = new System.Windows.Forms.Button();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.textBoxTransSummary = new System.Windows.Forms.TextBox();
             this.groupBoxSelect.SuspendLayout();
             this.groupBoxToppings.SuspendLayout();
             this.groupBoxFlavor.SuspendLayout();
             this.groupBoxSummary.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxSelect
@@ -239,11 +245,54 @@ namespace Project_06
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBoxTransSummary);
+            this.groupBox1.Controls.Add(this.buttonTotalTrans);
+            this.groupBox1.Controls.Add(this.listBoxTotTrans);
+            this.groupBox1.Location = new System.Drawing.Point(710, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(197, 331);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "All Customer Orders";
+            // 
+            // listBoxTotTrans
+            // 
+            this.listBoxTotTrans.FormattingEnabled = true;
+            this.listBoxTotTrans.Location = new System.Drawing.Point(17, 19);
+            this.listBoxTotTrans.Name = "listBoxTotTrans";
+            this.listBoxTotTrans.Size = new System.Drawing.Size(161, 173);
+            this.listBoxTotTrans.TabIndex = 0;
+            // 
+            // buttonTotalTrans
+            // 
+            this.buttonTotalTrans.Location = new System.Drawing.Point(17, 215);
+            this.buttonTotalTrans.Name = "buttonTotalTrans";
+            this.buttonTotalTrans.Size = new System.Drawing.Size(161, 41);
+            this.buttonTotalTrans.TabIndex = 1;
+            this.buttonTotalTrans.Text = "Total Up All Transaction";
+            this.buttonTotalTrans.UseVisualStyleBackColor = true;
+            this.buttonTotalTrans.Click += new System.EventHandler(this.buttonTotalTrans_Click);
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
+            // 
+            // textBoxTransSummary
+            // 
+            this.textBoxTransSummary.Location = new System.Drawing.Point(17, 286);
+            this.textBoxTransSummary.Name = "textBoxTransSummary";
+            this.textBoxTransSummary.Size = new System.Drawing.Size(161, 20);
+            this.textBoxTransSummary.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 364);
+            this.ClientSize = new System.Drawing.Size(949, 364);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxSummary);
             this.Controls.Add(this.groupBoxSelect);
             this.Name = "Form1";
@@ -257,6 +306,8 @@ namespace Project_06
             this.groupBoxFlavor.PerformLayout();
             this.groupBoxSummary.ResumeLayout(false);
             this.groupBoxSummary.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -281,6 +332,11 @@ namespace Project_06
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBoxTransSummary;
+        private System.Windows.Forms.Button buttonTotalTrans;
+        private System.Windows.Forms.ListBox listBoxTotTrans;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
     }
 }
 
