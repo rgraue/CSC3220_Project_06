@@ -11,6 +11,7 @@
 *.suo
 *.user
 *.sln.docstates
+*.mdf
 
 # VS C# specifics
 testing/
