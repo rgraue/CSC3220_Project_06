@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Project_06
@@ -21,6 +15,11 @@ namespace Project_06
         private const decimal priceSprink = 0.50M;
 
         private decimal totalPrice = 0.00M;
+
+        private string stringConnect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Development\\CS3220\\Project_06\\Project06_DB.mdf;Integrated Security=True";
+        private SqlConnection conn = new SqlConnection();
+        
+
         public Form1()
         {
             InitializeComponent();
@@ -68,13 +67,25 @@ namespace Project_06
 
         private void buttonTotal_Click(object sender, EventArgs e)
         {
+            string date = DateTime.Today.ToString("MM/dd/yyyy");
+            string time = DateTime.Now.ToString("HH:mm");
+            int id = getUniqueId();
+            string values = id + ",'" + date + "'" + "," +  "'"+ time + "'" + "," +  totalPrice;
+
+            conn.ConnectionString = stringConnect;
+            conn.Open();
+            SqlCommand add = new SqlCommand("Insert Into [Orders] (Id, Date, Time, Price) values (" + values + ")", conn);
+            add.ExecuteNonQuery();
+
             textBoxTotal.Text = "$" + totalPrice;
 
             listBoxTotTrans.Items.Add(totalPrice);
+            conn.Close();
         }
 
         private void buttonTotalTrans_Click(object sender, EventArgs e)
         {
+
             Decimal dayTotal = 0.0M;
             foreach (Decimal d in listBoxTotTrans.Items)
             {
@@ -82,6 +93,24 @@ namespace Project_06
             }
 
             textBoxTransSummary.Text = "$" + dayTotal;
+        }
+
+        private int getUniqueId ()
+        {
+            conn.ConnectionString = stringConnect;
+            conn.Open();
+            Random rand = new Random();
+            int temp = rand.Next(100001);
+            SqlCommand search = new SqlCommand("Select Id From Orders Where Id =" + temp, conn);
+            SqlDataReader reader = search.ExecuteReader();
+            if (reader.HasRows)
+            {
+                return getUniqueId();
+            } else
+            {
+                conn.Close();
+                return temp;
+            }   
         }
     }
 }
