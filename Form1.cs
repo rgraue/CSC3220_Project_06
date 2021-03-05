@@ -16,7 +16,7 @@ namespace Project_06
 
         private decimal totalPrice = 0.00M;
 
-        private string stringConnect = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Development\\CS3220\\Project_06\\Project06_DB.mdf;Integrated Security=True";
+        private string stringConnect = "data source = (local);DataBase=Project06; Integrated Security = SSPI";
         private SqlConnection conn = new SqlConnection();
         
 
